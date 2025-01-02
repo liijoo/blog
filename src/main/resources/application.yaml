@@ -1,0 +1,48 @@
+# DataSource Config
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/blog?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+    redis:
+        host: localhost
+        port: 6379
+        password: 123456
+        timeout: 6000ms
+        lettuce:
+            pool:
+                max-active: 8
+                max-idle: 8
+                min-idle: 0
+                max-wait: -1ms
+mybatis-plus:
+    mapper-locations: classpath*:/mapper/**Mapper.xml
+
+server:
+    port: 8080
+
+shiro-redis:
+    enabled: true
+    redis-manager:
+        #    本机环境
+        host: localhost:6379
+        password: 123456
+
+almond:
+    jwt:
+        # 加密秘钥
+        secret: f4e2e52034348f86b67cde581c0f9eb5
+        # token有效时长，7天，单位秒
+        expire: 604800
+        header: token
+
+    # 设置头像文件位置
+    #  avatar-path: D:\blogProject\avatar\
+    # 博客图片地址
+    #  img-path: D:\blogProject\blog\
+    # 服务器地址
+    server-path: http://localhost:8080/
+
+    avatar-path: /blog/data/user/
+    img-path: /blog/data/blog/
